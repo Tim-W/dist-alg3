@@ -22,6 +22,22 @@ public class Edge implements Comparable<Edge> {
         return weight.compareTo(edge.weight);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Edge) {
+            Edge edge = (Edge) obj;
+            return this.source.equals(edge.source) &&
+                    this.target.equals(edge.target) &&
+                    this.weight.equals(edge.weight);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return source.hashCode() + target.hashCode() + weight.hashCode();
+    }
+
     public String toString() {
         return "[" + source + ", " + target + "]";
     }
